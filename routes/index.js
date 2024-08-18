@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/login", function (req, res, next) {
-  res.render("login");
+  res.render("login", {error: req.flash("error")});
 });
 
 router.get("/profile", isLoggedIn, function (req, res, next) {
@@ -41,7 +41,8 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/profile",
-    failureRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
   }),
   async function (req, res) {}
 );

@@ -16,7 +16,7 @@ router.get("/login", function (req, res, next) {
 });
 
 router.get("/profile", isLoggedIn, function (req, res, next) {
-  res.send("Profile");
+  res.render("profile");
 });
 
 //! Register User - Post Req
@@ -51,13 +51,19 @@ router.get("/logout", function (req, res) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    res.redirect("/login");
   });
 });
 
+// !Feed
+router.get("/feed", function (req, res) {
+  res.render("feed");
+});
+
+// ! LoggedIn Function
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect("/");
+  res.redirect("/login");
 }
 
 module.exports = router;

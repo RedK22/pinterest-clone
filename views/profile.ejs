@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinterest Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <!-- Profile Header -->
+    <div class="flex flex-col items-center py-8">
+      <!-- Profile Picture and Details -->
+      <div class="flex flex-col items-center">
+        <img
+          class="w-24 h-24 rounded-full border-4 border-white"
+          src="https://via.placeholder.com/150"
+          alt="Profile Picture"
+        />
+        <h1 class="text-2xl font-semibold mt-4">Username</h1>
+        <p class="text-gray-400">X followers | Y following</p>
+      </div>
+
+      <!-- Profile Actions -->
+      <div class="mt-6 flex gap-4">
+        <button class="px-4 py-2 bg-red-500 text-white rounded-lg">
+          Follow
+        </button>
+        <button class="px-4 py-2 bg-gray-700 text-white rounded-lg">
+          Message
+        </button>
+        <button class="px-4 py-2 bg-gray-700 text-white rounded-lg">
+          Share
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Navigation -->
+    <div class="border-t border-gray-700">
+      <div class="flex justify-center py-4">
+        <a href="#" class="text-white px-6 py-2 hover:text-red-500">Created</a>
+        <a href="#" class="text-white px-6 py-2 hover:text-red-500">Saved</a>
+        <a href="#" class="text-white px-6 py-2 hover:text-red-500">About</a>
+      </div>
+    </div>
+
+    <!-- Pins Grid -->
+    <div
+      class="columns-2 md:columns-3 lg:columns-4 xl:columns-5 w-[90%] mx-auto py-4 gap-x-2 gap-y-4"
+    >
+      <!-- Image Pin -->
+      <div class="m-2 break-inside-avoid">
+        <a href="#">
+          <img
+            class="w-full rounded-lg"
+            src="https://via.placeholder.com/300x400"
+            alt="Pin Image"
+          />
+        </a>
+        <div class="text-sm mt-2">Caption for Image 1</div>
+      </div>
+
+      <div class="m-2 break-inside-avoid">
+        <a href="#">
+          <img
+            class="w-full rounded-lg"
+            src="https://via.placeholder.com/300x400"
+            alt="Pin Image"
+          />
+        </a>
+        <div class="text-sm mt-2">Caption for Image 2</div>
+      </div>
+
+      <div class="m-2 break-inside-avoid">
+        <a href="#">
+          <img
+            class="w-full rounded-lg"
+            src="https://via.placeholder.com/300x400"
+            alt="Pin Image"
+          />
+        </a>
+        <div class="text-sm mt-2">Caption for Image 3</div>
+      </div>
+      <!-- Add more pins as needed -->
+    </div>
+  </body>
+</html>

@@ -64,8 +64,9 @@ router.get("/logout", function (req, res) {
 
 // !Feed
 router.get("/feed", async function (req, res) {
-  const posts = await postModel.find();
+  const posts = await postModel.find().populate("user");
 
+  console.log(posts);
   res.render("feed", {posts});
 });
 

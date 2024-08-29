@@ -25,6 +25,19 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
   res.render("profile", {user});
 });
 
+router.post(
+  "/uploadprofileimage",
+  isLoggedIn,
+  upload.single("profilepic"),
+  async function (req, res, next) {
+    const user = await userModel.findOne({username: req.session.passport.user});
+    user.dp = req.file.filename;
+    await user.save();
+
+    res.redirect("/profile");
+  }
+);
+
 //! Register User - Post Req
 router.post("/register", async function (req, res) {
   const {username, email, fullname} = req.body;
@@ -66,8 +79,12 @@ router.get("/logout", function (req, res) {
 router.get("/feed", async function (req, res) {
   const posts = await postModel.find().populate("user");
 
-  console.log(posts);
   res.render("feed", {posts});
+});
+
+// ! Create Pin
+router.get("/create", async function (req, res) {
+  res.render("create");
 });
 
 // !Upload Route

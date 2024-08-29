@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create A Pin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-800 text-white">
+    <div class="text-center mt-10 mb-20">
+      <h1 class="text-3xl font-semibold">Create A Pin</h1>
+    </div>
+
+    <div class="flex px-4">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input
+          id="fileInput"
+          class="block mb-4"
+          type="file"
+          name="file"
+          accept="image/*"
+        />
+        <img
+          id="imagePreview"
+          src=""
+          alt="Image Preview"
+          class="mb-4"
+          style="display: none; max-width: 200px; max-height: 200px"
+        />
+        <input
+          class="block mb-4 pl-2 bg-zinc-900 text-white outline-none"
+          placeholder="Pin Name"
+          type="text"
+          name="filecaption"
+        />
+        <input
+          class="block hover:cursor-pointer mb-4 bg-red-600 px-4 py-2 rounded-lg text-sm font-semibold"
+          type="submit"
+          value="Create Pin"
+        />
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const imagePreview = document.getElementById("imagePreview");
+              imagePreview.src = e.target.result;
+              imagePreview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+  </body>
+</html>

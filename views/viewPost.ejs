@@ -6,36 +6,40 @@
     <title>View Post</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body
-    class="bg-zinc-900 text-white flex justify-center items-center min-h-screen"
-  >
-    <div class="w-full max-w-4xl p-4 bg-zinc-800 rounded-lg shadow-lg">
-      <!-- Post Image -->
-      <div class="flex justify-center items-center">
-        <div class="w-[400px]">
-          <img
-            src="/images/uploads/<%= post.image %>"
-            alt="<%= post.imageText %> Image"
-            class="w-[full] rounded-lg mb-1"
-          />
+  <body class="bg-zinc-900 text-white">
+    <!-- Navbar -->
+    <%- include('partials/nav') %>
+
+    <!-- Main Content -->
+    <div class="pt-16 flex justify-center items-center h-full">
+      <div class="w-full max-w-4xl p-4 bg-zinc-800 rounded-lg shadow-lg">
+        <!-- Post Image -->
+        <div class="flex justify-center items-center">
+          <div class="w-[400px]">
+            <img
+              src="/images/uploads/<%= post.image %>"
+              alt="<%= post.imageText %> Image"
+              class="w-full rounded-lg mb-1"
+            />
+          </div>
         </div>
-      </div>
 
-      <!-- Post Details -->
-      <div class="p-4">
-        <h1 class="text-2xl font-bold mb-2"><%= post.imageText %></h1>
-        <p class="text-xs text-gray-400">
-          Posted by: @<%= post.user.username %>
-        </p>
-      </div>
+        <!-- Post Details -->
+        <div class="p-4">
+          <h1 class="text-2xl font-bold mb-2"><%= post.imageText %></h1>
+          <p class="text-xs text-gray-400">
+            Posted by: @<%= post.user.username %>
+          </p>
+        </div>
 
-      <!-- Back to Feed Button -->
-      <div class="text-center mt-2">
-        <a
-          href="/feed"
-          class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-all"
-          >Back to Feed</a
-        >
+        <!-- Back to Feed Button -->
+        <div class="text-center mt-2">
+          <a
+            href="/feed"
+            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-all"
+            >Back to Feed</a
+          >
+        </div>
       </div>
     </div>
   </body>

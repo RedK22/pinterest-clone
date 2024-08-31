@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pinterest Clone</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .logo {
+        height: 100%; /* Adjust this if needed to fit the logo size */
+      }
+    </style>
   </head>
-  <body class="bg-zinc-900 text-white flex justify-center">
-    <!--! Feed Container -->
-    <div
-      class="columns-2 md:columns-3 lg:columns-4 xl:columns-5 w-[90%] py-4 gap-x-2 gap-y-4"
-    >
-      <!--! Image Pin -->
+  <body class="bg-zinc-900 text-white">
+    <!-- Include Navbar -->
+    <%- include('partials/nav') %>
 
+    <!-- Feed Container -->
+    <div
+      class="columns-2 md:columns-3 lg:columns-4 xl:columns-5 w-[90%] mx-auto py-4 gap-x-2 gap-y-4 pt-16"
+    >
+      <!-- Image Pin -->
       <div class="posts">
         <% posts.forEach(function(post){ %>
         <div class="m-2 break-inside-avoid">

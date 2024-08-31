@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const userModel = require("./users");
-const postModel = require("./Posts");
+const postModel = require("./posts");
 const passport = require("passport");
 const upload = require("./multer");
 

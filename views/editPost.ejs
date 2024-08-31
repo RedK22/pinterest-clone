@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Pin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-800 text-white">
+    <div class="text-center mt-10 mb-20">
+      <h1 class="text-3xl font-semibold">Edit Pin</h1>
+    </div>
+
+    <div class="flex px-4">
+      <form action="/posts/<%= post._id %>/edit" method="POST">
+        <img
+          src="/images/uploads/<%= post.image %>"
+          alt="Post Image"
+          style="max-width: 50%; height: auto"
+          class="mb-4"
+        />
+        <input
+          class="block mb-4 pl-2 bg-zinc-900 text-white outline-none"
+          placeholder="Edit Pin Name"
+          type="text"
+          name="filecaption"
+        />
+        <input
+          class="block hover:cursor-pointer mb-4 bg-red-600 px-4 py-2 rounded-lg text-sm font-semibold"
+          type="submit"
+          value="Update Pin"
+        />
+      </form>
+    </div>
+  </body>
+</html>

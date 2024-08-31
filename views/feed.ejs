@@ -16,14 +16,16 @@
       <div class="posts">
         <% posts.forEach(function(post){ %>
         <div class="m-2 break-inside-avoid">
-          <a href="/images/uploads/<%= post.image %>">
+          <a href="/viewpost/<%= post._id %>">
             <img
               src="/images/uploads/<%= post.image %>"
               class="w-full rounded-lg"
               alt="<%= post.imageText %> Image"
             />
           </a>
-          <div class="text-sm mt-2"><%= post.imageText %></div>
+          <a href="/viewpost/<%= post._id %>">
+            <div class="text-sm mt-2"><%= post.imageText %></div>
+          </a>
           <div class="text-xs mt-2">Posted by: @<%= post.user.username %></div>
         </div>
         <% }) %>

@@ -79,7 +79,22 @@
               alt="Pin Image"
             />
           </a>
-          <div class="text-sm mt-2"><%= post.imageText %></div>
+          <div class="text-sm mt-2 text-center"><%= post.imageText %></div>
+
+          <div class="flex h-1/2 justify-between">
+            <button>
+              <a
+                class="text-xs outline-none text-blue-600"
+                href="/posts/<%= post._id %>/edit"
+                >Edit</a
+              >
+            </button>
+            <form action="/posts/<%= post._id %>/delete" method="POST">
+              <button class="text-xs outline-none text-red-600" type="submit">
+                Delete
+              </button>
+            </form>
+          </div>
         </div>
         <% }) %>
       </div>

@@ -109,6 +109,59 @@ router.post(
   }
 );
 
+// !View Post
+router.get("/viewpost/:id", isLoggedIn, async function (req, res) {
+  try {
+    const post = await postModel.findById(req.params.id).populate("user"); // Populate user details if needed
+    if (!post) {
+      return res.status(404).send("Post not found");
+    }
+    res.render("viewPost", {post});
+  } catch (err) {
+    res.status(500).send("Server error");
+  }
+});
+
+//! Edit Post
+router.get("/posts/:id/edit", isLoggedIn, async function (req, res) {
+  const post = await postModel.findById(req.params.id);
+
+  // Ensure the user is authorized to edit the post
+  if (post.user.equals(req.user._id)) {
+    res.render("editPost", {post});
+  } else {
+    res.redirect("/feed"); // Or show an error message
+  }
+});
+
+router.post("/posts/:id/edit", isLoggedIn, async function (req, res) {
+  const {filecaption} = req.body;
+
+  const post = await postModel.findById(req.params.id);
+
+  // Ensure the user is authorized to edit the post
+  if (post.user.equals(req.user._id)) {
+    await postModel.findByIdAndUpdate(req.params.id, {imageText: filecaption});
+    res.redirect("/profile");
+  } else {
+    res.redirect("/feed"); // Or show an error message
+  }
+});
+
+// !Delete Route
+// Route to delete a post
+router.post("/posts/:id/delete", isLoggedIn, async function (req, res) {
+  const post = await postModel.findById(req.params.id);
+
+  // Ensure the user is authorized to delete the post
+  if (post.user.equals(req.user._id)) {
+    await postModel.findByIdAndDelete(req.params.id);
+    res.redirect("/profile");
+  } else {
+    res.redirect("/feed"); // Or show an error message
+  }
+});
+
 // ! LoggedIn Function
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

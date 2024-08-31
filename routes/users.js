@@ -2,8 +2,15 @@ const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
 
 mongoose.connect(
-  "mongodb+srv://red22k:Ritwik123@cluster0.31i2xgj.mongodb.net/PinterestClone/?retryWrites=true&w=majority&appName=Cluster0"
+  "mongodb+srv://Blue:BlueRed22@cluster0.31i2xgj.mongodb.net/Pinterest?retryWrites=true&w=majority"
 );
+
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function () {
+  console.log("Connected to MongoDB Atlas");
+});
 
 const userSchema = new mongoose.Schema({
   username: {

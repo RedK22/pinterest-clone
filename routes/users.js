@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
 
-mongoose.connect(
-  "mongodb+srv://Blue:BlueRed22@cluster0.31i2xgj.mongodb.net/Pinterest?retryWrites=true&w=majority"
-);
+mongoose.connect(MONGODB_URI);
 
 const db = mongoose.connection;
 

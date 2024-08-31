@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
+require("dotenv").config(); // Load .env file
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
 
